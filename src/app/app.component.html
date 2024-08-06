@@ -1,12 +1,35 @@
-<h1>Hello Clover Land 👋 🍀</h1>
-<h1>{{ title }}</h1>
+<p-toolbar styleClass="bg-success mb-5">
+  <div class="p-toolbar-group-center">
+    <h1 class="text-white">Hello Clover Land 👋 🍀</h1>
+  </div>
+</p-toolbar>
 
-@for(mage of mageList(); track mage.id){
-    <h2>{{mage.name}}</h2>
-    <img [src]="mage.picture" [alt]="mage.name"/>
-    <p>Points de vie : {{mage.life}}</p>
-    <p>Tranche de vie : {{ size(mage)}}</p>
+  <div class="container">
+    <div class="row">
+        @for(mage of mageList(); track mage.id){
+            <div  class="col-md-4">
+                <p-card class="mb-3">
+                  <div class="row g-0">
+                    <div class="col-md-4 d-flex align-items-center justify-content-center bg-light">
+                      <img [src]="mage.picture" [alt]="mage.name" class="img-fluid rounded-start">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">{{ mage.name }}</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">
+                          Taille : {{ size(mage) }}
+                        </h6>
+                        <p class="card-text">Points de vie : {{ mage.life }}</p>
+                        <div class="btn-group btn-group-sm" role="group">
+                          <button pButton type="button" icon="pi pi-plus" (click)="incrementLife(mage)" class="btn btn-outline-secondary" [disabled]="mage.life >= 40"></button>
+                          <button pButton type="button" icon="pi pi-minus" (click)="decrementLife(mage)" class="btn btn-outline-secondary" [disabled]="mage.life <= 10"></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </p-card>
+              </div>
 
-    <button (click)="incrementLife(mage)" [disabled]="mage.life >= 40"> + </button>
-    <button (click)="decrementLife(mage)" [disabled]="mage.life <= 10" > - </button>
-}
+        }
+    </div>
+  </div>
