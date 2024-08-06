@@ -1,6 +1,12 @@
 <h1>Hello Clover Land 👋 🍀</h1>
-<h1> {{title}} </h1>
-<h2> {{name}} </h2>
-<p> Points de vie : {{life}} </p>
-<button (click)="incrementLife()">+</button>
-<button (click)="decrementLife()">-</button>
+<h1>{{ title }}</h1>
+
+@for(mage of mageList(); track mage.id){
+    <h2>{{mage.name}}</h2>
+    <img [src]="mage.picture" [alt]="mage.name"/>
+    <p>Points de vie : {{mage.life}}</p>
+    <p>Tranche de vie : {{ size(mage)}}</p>
+
+    <button (click)="incrementLife(mage)" [disabled]="mage.life >= 40"> + </button>
+    <button (click)="decrementLife(mage)" [disabled]="mage.life <= 10" > - </button>
+}
