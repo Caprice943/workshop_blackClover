@@ -5,9 +5,9 @@
 </p-toolbar>
 
   <div class="container">
-    <div class="row">
+    <div class="column">
         @for(mage of mageList(); track mage.id){
-            <div  class="col-md-4">
+            <div class="col-md-4">
                 <p-card class="mb-3">
                   <div class="row g-0">
                     <div class="col-md-4 d-flex align-items-center justify-content-center bg-light">
@@ -21,8 +21,8 @@
                         </h6>
                         <p class="card-text">Points de vie : {{ mage.life }}</p>
                         <div class="btn-group btn-group-sm" role="group">
-                          <button pButton type="button" icon="pi pi-plus" (click)="incrementLife(mage)" class="btn btn-outline-secondary" [disabled]="mage.life >= 40"></button>
-                          <button pButton type="button" icon="pi pi-minus" (click)="decrementLife(mage)" class="btn btn-outline-secondary" [disabled]="mage.life <= 10"></button>
+                          <p-button label="+" (onClick)="incrementLife(mage)" [disabled]="mage.life >= 40"/>
+                          <p-button label="-" severity="danger" (onClick)="decrementLife(mage)" [disabled]="mage.life <= 10"/>
                         </div>
                       </div>
                     </div>
@@ -33,3 +33,4 @@
         }
     </div>
   </div>
+

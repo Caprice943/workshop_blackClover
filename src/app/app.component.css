@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Jersey+15&display=swap");
+
+*{
+    border: 1px solid red;
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  min-height: 100vh;
+  color: beige;
+}
+
+h1 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: center;
+  font-size: 2.5rem;
+  text-shadow: -3px -4px 5px black;
+  /*color: rgb(186, 247, 167);*/
+  font-family: "Jersey 15", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}

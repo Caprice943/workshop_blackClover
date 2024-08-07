@@ -5,12 +5,12 @@ import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { ImageModule } from 'primeng/image';
 import { ToolbarModule } from 'primeng/toolbar';
-import { NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ButtonModule, CardModule, ImageModule, ToolbarModule, NgFor],
+  imports: [ButtonModule, CardModule, ImageModule, ToolbarModule, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
