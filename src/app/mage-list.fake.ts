@@ -64,4 +64,22 @@ export const MAGE_LIST : MageList = [
         team: ['Taureau Noir'],
         created: new Date,
     },
+    {
+        id: 8,
+        name: 'Magna',
+        life: 29,
+        damage: 3,
+        picture: 'Magna.jpg',
+        team: ['Taureau Noir'],
+        created: new Date,
+    },
+    {
+        id: 9,
+        name: 'Charmy',
+        life: 10,
+        damage: 3,
+        picture: 'Charmy.jpg',
+        team: ['Taureau Noir'],
+        created: new Date,
+    },
 ];

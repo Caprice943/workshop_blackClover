@@ -1,12 +1,57 @@
-<h1>Hello Clover Land 👋 🍀</h1>
-<h1>{{ title }}</h1>
+<nav class="navbar bg-success mb-5">
+<img class="img-fluid logo-title" src="../../public/Black_Clover_Logo.png" alt="Black_Clover_Logo"/>
+  <div class="container text-white justify-content-center">
+    <h1>Hello Clover Land 👋🍀</h1>
+  </div>
+</nav>
 
-@for(mage of mageList(); track mage.id){
-    <h2>{{mage.name}}</h2>
-    <img [src]="mage.picture" [alt]="mage.name"/>
-    <p>Points de vie : {{mage.life}}</p>
-    <p>Tranche de vie : {{ size(mage)}}</p>
+<h2 class="text-center fst-italic fw-bold">Equipe du Taureau Noir ♉ </h2>
 
-    <button (click)="incrementLife(mage)" [disabled]="mage.life >= 40"> + </button>
-    <button (click)="decrementLife(mage)" [disabled]="mage.life <= 10" > - </button>
-}
+<br/>
+
+<div class="container">
+  <div class="row">
+    @for(mage of mageList(); track mage.id){
+    <div class="col-md-4">
+      <div class="card mb-3">
+        <div class="row g-0">
+          <div
+            class="col-md-4 d-flex align-items-center justify-content-center bg-light"
+          >
+            <img
+              class="img-fluid rounded-start w-100 h-100"
+              [src]="mage.picture"
+              [alt]="mage.name"
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title fw-bold fst-italic">{{ mage.name }}</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary">
+                Tranche de vie : {{ size(mage) }}
+              </h6>
+              <p class="card-text">Points de vie : {{ mage.life }}</p>
+              <div class="btn-group btn-group-sm" role="group">
+                <button
+                  class="btn btn-outline-success"
+                  (click)="incrementLife(mage)"
+                  [disabled]="mage.life >= 40"
+                >
+                  +
+                </button>
+                <button
+                  class="btn btn-outline-danger"
+                  (click)="decrementLife(mage)"
+                  [disabled]="mage.life <= 10"
+                >
+                  -
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>

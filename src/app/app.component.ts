@@ -10,7 +10,7 @@ import { Mage } from './mage.model';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'Equipe du Taureau Noir';
+
   
   mageList = signal(MAGE_LIST);
 
