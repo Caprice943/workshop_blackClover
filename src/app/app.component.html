@@ -1,6 +1,64 @@
-<h1>Hello Clover Land 👋 🍀</h1>
-<h1> {{title}} </h1>
-<h2> {{name}} </h2>
-<p> Points de vie : {{life}} </p>
-<button (click)="incrementLife()">+</button>
-<button (click)="decrementLife()">-</button>
+<nav class="navbar bg-success p-2 text-white bg-opacity-105 mb-5">
+<img class="img-fluid logo-title" src="assets/Black_Clover_Logo.png" alt="Black_Clover_Logo"/>
+  <div class="container text-white justify-content-center">
+    <h1>Welcome to the Kingdom of Clover</h1>
+  </div>
+</nav>
+
+<h2 class="text-center fst-italic fw-bold">Equipe du Taureau Noir 🍀 </h2>
+
+<br/>
+
+<div class="container">
+  <div class="row">
+    @for(mage of mageList(); track mage.id){
+    <div class="col-md-4">
+      <div class="card mb-3">
+        <div class="row g-0">
+          <div
+            class="col-md-4 d-flex align-items-center justify-content-center bg-light"
+          >
+            <img
+              class="img-fluid rounded-start w-100 h-100"
+              [src]="mage.picture"
+              [alt]="mage.name"
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title fw-bold fst-italic">{{ mage.name }}</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary">
+                Tranche de vie : {{ size(mage) }}
+              </h6>
+              <p class="card-text">Points de vie : {{ mage.life }}</p>
+              <div class="btn-group btn-group-sm" role="group">
+                <button
+                  class="btn btn-outline-success"
+                  (click)="incrementLife(mage)"
+                  [disabled]="mage.life >= 40"
+                >
+                  +
+                </button>
+                <button
+                  class="btn btn-outline-danger"
+                  (click)="decrementLife(mage)"
+                  [disabled]="mage.life <= 10"
+                >
+                  -
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>
+
+<footer class="">
+    <div class="text-end p-2 bg-body-secondary position-absolute bottom-0 end-0 w-100">
+        © 2024 Copyright - Caprice NDOMBI MOUIRI
+    </div>
+    
+</footer>
