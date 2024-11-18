@@ -9,7 +9,7 @@ import { retry } from 'rxjs';
 export class MageService {
   constructor() {}
 
-  public getAllMages(): MageList {
+  public getMagesList(): MageList {
     return MAGE_LIST;
   }
 
@@ -32,4 +32,5 @@ export class MageService {
       'Rose bleue',
     ];
   }
+
 }

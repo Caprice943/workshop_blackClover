@@ -1,5 +1,4 @@
 import { Component, computed, effect, inject, signal } from '@angular/core';
-import { MAGE_LIST } from './mage-list.fake';
 import { Mage } from './mage.model';
 import { MageBorderDirective } from './mage-border.directive';
 import { DatePipe } from '@angular/common';
@@ -13,8 +12,17 @@ import { MageService } from './mage.service';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  private readonly mageService = inject(MageService);
-  mageList = signal(MAGE_LIST);
+  readonly mageService = inject(MageService); 
+  readonly mageList = signal(this.mageService.getMagesList());
+  readonly searchTerm = signal('');
+
+  readonly mageListFiltered = computed(() => {
+    return this.mageList().filter((mage) => mage.name
+    .toLowerCase().includes(this.searchTerm().trim().toLowerCase()));
+
+  });
+  
+
 
   incrementLife(mage: Mage) {
     mage.life = mage.life + 5;
