@@ -19,3 +19,7 @@ h1 {
     -6px 7px #808d93, -7px 6px #cdd2d5, -7px 8px #808d93, -8px 7px #cdd2d5,
     2px 2px 3px rgba(87, 177, 46, 0.93);
 }
+
+input{
+  width: 50%;
+}
