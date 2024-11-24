@@ -1,0 +1,76 @@
+<span class="ms-5">
+  <a class="text-decoration-none text-success" routerLink="/mages">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="currentColor"
+      class="bi bi-arrow-left-circle"
+      viewBox="0 0 16 16"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"
+      />
+    </svg>
+    Retour
+  </a>
+</span>
+
+
+<div class="container d-flex justify-content-center mt-2">
+  <div class="card w-50">
+    <div class="row g-0">
+      <div
+        class="col-md-4 d-flex align-items-center justify-content-center bg-light"
+      >
+        <img
+          [src]="mage().picture"
+          class="img-fluid rounded-start w-100 h-100"
+          [alt]="mage().name"
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h2 class="card-title">
+            {{ mage().name }}
+          </h2>
+          <table class="table">
+            <tbody>
+              <tr>
+                <th scope="row">Points de vie</th>
+                <td>{{ mage().life }}</td>
+              </tr>
+              <tr>
+                <th scope="row">Dégâts</th>
+                <td>{{ mage().damage }}</td>
+              </tr>
+              <tr>
+                <th scope="row">Equipe</th>
+                <td>
+                  @for(type of mage().team; track type) {
+                  <span class="badge rounded-pill bg-secondary me-1">
+                    {{ type }}
+                  </span>
+                  }
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Date de création</th>
+                <td>{{ mage().created | date : "dd/MM/yyyy" }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="d-flex justify-content-between mt-4">
+            <button class="btn btn-link text-decoration-none text-warning">
+              EDITER
+            </button>
+            <button class="btn btn-link text-decoration-none text-warning">
+              SUPPRIMER
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
